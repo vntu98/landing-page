@@ -1,0 +1,105 @@
+.quote {
+    padding: 6.5rem 0;
+    background-color: $gray-color;
+    &-arrow {
+        color: $gray-dark-color;
+        cursor: pointer;
+        font-size: 3rem;
+        padding: 1rem 2rem;
+    }
+    &-item {
+        padding-left: 5.5rem;
+        padding-right: 5.5rem;
+        @include flexbox(center);
+        outline: none;
+    }
+    &-icon {
+        @include size(15rem);
+        @include flexbox(center, center);
+        border: 3px solid $third-color;
+        flex-shrink: 0;
+    }
+    &-info {
+        padding-left: 6rem;
+    }
+    &-desc {
+        font-size: 2.4rem;
+        font-family: $secondary-font;
+        line-height: 1.6;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+        font-style: italic;
+        color: $text-color;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    &-author {
+        font-family: $third-font;
+        font-size: 2.4rem;
+        position: relative;
+        padding-left: 7rem;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            @include size(6rem, 4px);
+            background-color: $primary-color;
+        }
+    }
+
+    // slick slider
+    .slick-initialized .slick-slide {
+        display: flex;
+    }
+    .slick-arrow {
+        background-color: transparent;
+        border: 0;
+        color: $gray-dark-color;
+        cursor: pointer;
+        font-size: 3rem;
+        padding: 1rem 2rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+    .slick-prev {
+        left: 0;
+    }
+    .slick-next {
+        right: 0;
+    }
+
+    @include maxWidth(767px) {
+        &-arrow.fa {
+            display: none;
+        }
+        &-item {
+            padding: 0;
+            flex-direction: column;
+        }
+        &-icon {
+            @include size(10rem);
+            img {
+                max-width: 50%;
+            }
+        }
+        &-info {
+            padding-left: 0;
+            margin-top: 3rem;
+        }
+        &-desc {
+            display: block;
+            font-size: 1.6rem;
+        }
+        &-author {
+            font-size: 2rem;
+        }
+    }
+}
